@@ -8,7 +8,7 @@ namespace L01P02_2020PM606.Models
         
         [Key]
         [Display(Name = "id comentatio")]
-        public int comentarioId { get; set; }
+        public int cometarioId { get; set; }
 
         [Display(Name = "id publicacion")]
         public int publicacionId { get; set;}

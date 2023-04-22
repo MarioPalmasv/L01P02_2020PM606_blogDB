@@ -35,7 +35,7 @@ namespace L01P02_2020PM606.Controllers
             }
 
             var comentarios = await _context.comentarios
-                .FirstOrDefaultAsync(m => m.comentarioId == id);
+                .FirstOrDefaultAsync(m => m.cometarioId == id);
             if (comentarios == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace L01P02_2020PM606.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("comentarioId,publicacionId,comentario,usuarioId")] comentarios comentarios)
+        public async Task<IActionResult> Create([Bind("cometarioId,publicacionId,comentario,usuarioId")] comentarios comentarios)
         {
             if (ModelState.IsValid)
             {
@@ -87,9 +87,9 @@ namespace L01P02_2020PM606.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("comentarioId,publicacionId,comentario,usuarioId")] comentarios comentarios)
+        public async Task<IActionResult> Edit(int id, [Bind("cometarioId,publicacionId,comentario,usuarioId")] comentarios comentarios)
         {
-            if (id != comentarios.comentarioId)
+            if (id != comentarios.cometarioId)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace L01P02_2020PM606.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!comentariosExists(comentarios.comentarioId))
+                    if (!comentariosExists(comentarios.cometarioId))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace L01P02_2020PM606.Controllers
             }
 
             var comentarios = await _context.comentarios
-                .FirstOrDefaultAsync(m => m.comentarioId == id);
+                .FirstOrDefaultAsync(m => m.cometarioId == id);
             if (comentarios == null)
             {
                 return NotFound();
@@ -156,7 +156,7 @@ namespace L01P02_2020PM606.Controllers
 
         private bool comentariosExists(int id)
         {
-          return (_context.comentarios?.Any(e => e.comentarioId == id)).GetValueOrDefault();
+          return (_context.comentarios?.Any(e => e.cometarioId == id)).GetValueOrDefault();
         }
     }
 }
